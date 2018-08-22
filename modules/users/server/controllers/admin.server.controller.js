@@ -6,6 +6,7 @@
 var path = require('path'),
   mongoose = require('mongoose'),
   User = mongoose.model('User'),
+  Status = mongoose.model('Status'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 /**
@@ -14,6 +15,56 @@ var path = require('path'),
 exports.read = function (req, res) {
   res.json(req.model);
 };
+//create user
+exports.createuser = function (req, res) {
+  // For security measurement we remove the roles from the req.body object
+ console.log(req.body.user);
+
+  // Init user and add missing fields
+  var user = new User(req.body.user);
+  user.provider = 'local';
+  user.displayName = user.firstName + ' ' + user.lastName;
+
+  // Then save the user
+  user.save(function (err) {
+    if (err) {
+      console.log(err);
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      // Remove sensitive data before login
+      user.password = undefined;
+      user.salt = undefined;
+      res.json(user);
+     
+    }
+  });
+};
+
+exports.postdailystatus = function (req, res) {
+  // For security measurement we remove the roles from the req.body object
+ console.log(req.body.status);
+
+  // Init user and add missing fields
+  var status = new Status(req.body.status);
+ 
+  // Then save the user
+  status.save(function (err) {
+    if (err) {
+      console.log(err);
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      // Remove sensitive data before login
+     
+      res.json(status);
+     
+    }
+  });
+};
+
 
 /**
  * Update a User
@@ -37,7 +88,24 @@ exports.update = function (req, res) {
     res.json(user);
   });
 };
+exports.updateUser = function (req, res) {
+  
+  var user = new User(req.body.user);
+  console.log("You reached here")
+  User.findOneAndUpdate({email:req.body.user.email}, req.body.user, function (err, user) {
+    
+    if (err) {
+      console.log("Update Failed",err)
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+    console.log("update Successful");
 
+    res.json(user);
+  });
+ 
+};
 /**
  * Delete a user
  */
@@ -69,6 +137,39 @@ exports.list = function (req, res) {
     res.json(users);
   });
 };
+
+exports.getDailyStatus = function (req, res) {
+  Status.find({}).sort('_id').populate('user', 'displayName').exec(function (err, users) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+console.log("Successful")
+console.log(users);
+    res.json(users);
+  });
+};
+
+exports.getUsers = function (req, res) {
+  var query={};
+//query.status='active';
+query.roles={
+$eq:["user"]
+}
+  User.find(query).sort('_id').populate('user', 'displayName').exec(function (err, users) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+console.log("Successful")
+console.log(users);
+    res.json(users);
+  });
+};
+
+
 
 /**
  * User middleware

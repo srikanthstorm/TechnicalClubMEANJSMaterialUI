@@ -83,7 +83,7 @@ var UserSchema = new Schema({
     type: String,
     unique: 'Username already exists',
     required: 'Please fill in a username',
-    validate: [validateUsername, 'Please enter a valid username: 3+ characters long, non restricted word, characters "_-.", no consecutive dots, does not begin or end with dots, letters a-z and numbers 0-9.'],
+    // validate: [validateUsername, 'Please enter a valid username: 3+ characters long, non restricted word, characters "_-.", no consecutive dots, does not begin or end with dots, letters a-z and numbers 0-9.'],
     lowercase: true,
     trim: true
   },
@@ -93,6 +93,31 @@ var UserSchema = new Schema({
   },
   salt: {
     type: String
+  },
+  role: {
+    type: String
+  },
+  domain: {
+    type: String
+  },
+  yof: {
+    type: String
+  },
+  rollno: {
+    type: String
+  },
+  clubs: {
+    type: String
+  },
+  section: {
+    type: String
+  },
+  branch: {
+    type: String
+  },
+  
+  contact: {
+    type: Number
   },
   profileImageURL: {
     type: String,
@@ -107,18 +132,20 @@ var UserSchema = new Schema({
   roles: {
     type: [{
       type: String,
-      enum: ['user', 'admin']
+      enum: ['user', 'clubadmin','coordinator','admin']
     }],
     default: ['user'],
     required: 'Please provide at least one role'
   },
   updated: {
-    type: Date
+    type: Date,
+    default: Date.now
   },
   created: {
     type: Date,
     default: Date.now
   },
+  
   /* For reset password */
   resetPasswordToken: {
     type: String
@@ -320,3 +347,22 @@ function seed(doc, options) {
 
   });
 }
+
+var DailySchema = new mongoose.Schema({
+  displayName: String,
+  topic: String,
+  domain: String,
+  attendees: String,
+  email: String,
+  title:String,
+  club:String,
+  description:String,
+  date: {
+    type: Date,
+    default: Date.now
+  },
+  
+
+});
+
+var Status = mongoose.model("Status", DailySchema);

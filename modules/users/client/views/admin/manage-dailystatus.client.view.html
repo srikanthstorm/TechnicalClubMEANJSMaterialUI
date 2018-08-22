@@ -1,0 +1,85 @@
+<section>
+    <div class="page-header">
+
+        <fieldset>
+          <div class="row">
+            <div class="col-md-4">
+                <div class="form-group" >
+                    <label class="control-label" for="title">Domain</label>
+                    <input name="title" type="text" ng-model="data.domain" id="title" class="form-control" placeholder="Title" required autofocus>
+                    <!-- <div ng-messages="form.articleForm.title.$error" role="alert">
+                      <p class="help-block error-text" ng-message="required">Article title is required.</p>
+                    </div> -->
+                  </div>
+
+            </div>
+         
+            <div class="col-md-4">
+                <div class="form-group" >
+                    <label class="control-label" for="title">No of Attendees</label>
+                    <input name="title" type="text" ng-model="data.attendees" id="title" class="form-control" placeholder="Title" required autofocus>
+                    <!-- <div ng-messages="form.articleForm.title.$error" role="alert">
+                      <p class="help-block error-text" ng-message="required">Article title is required.</p>
+                    </div> -->
+                  </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                        <label for="role">Club</label>
+                        <select  id="role" name="role" class="form-control" ng-model="data.role" ng-options="x for x in clubs">
+                                <option value="" disabled selected>Select Club</option>
+                            </select>
+                        <div ng-messages="userForm.roles.$error" role="alert">
+                          <p class="help-block error-text" ng-message="required">Role is required.</p>
+                        </div>
+                      </div>
+            </div>
+
+          </div>
+          <div class="row">
+
+              <div class="col-md-4" >
+                  <div class="form-group" >
+                      <label for="date">Select Date</label>
+
+
+                                  <p class="input-group">
+                                    <input type="text" class="form-control" name="date" placeholder="Select Date" uib-datepicker-popup="{{format}}" ng-model="data.date" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                    <span class="input-group-btn">
+                                      <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                  </p>
+    <!--                                                                 
+                          <div ng-messages=" userForm.jdt.$error" role="alert">
+                            <p class="help-block error-text" ng-message="required">Last name is required.</p>
+                          </div> -->
+                        </div>
+              </div>
+           
+<div class="col-md-4">
+    <div class="form-group" >
+        <label class="control-label" for="title">Topic title</label>
+        <input name="title" type="text" ng-model="data.title" id="title" class="form-control" placeholder="Title" required autofocus>
+        <!-- <div ng-messages="form.articleForm.title.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Article title is required.</p>
+        </div> -->
+      </div>
+
+</div>
+
+          </div>
+       
+               
+                
+               
+                <div class="form-group">
+                  <label class="control-label" for="content">description</label>
+                  <textarea name="content" data-ng-model="data.description" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+                </div>
+                <div class="form-group">
+                  <button ng-click="postDailyStatus()" class="btn btn-default">Post Status</button>
+                </div>
+              </fieldset>
+</div>
+              </section>

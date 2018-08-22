@@ -12,7 +12,10 @@
       .state('admin.articles', {
         abstract: true,
         url: '/articles',
-        template: '<ui-view/>'
+        template: '<ui-view/>',
+        data: {
+          roles: ['clubadmin','admin','coordinator','user']
+        }
       })
       .state('admin.articles.list', {
         url: '',
@@ -20,7 +23,7 @@
         controller: 'ArticlesAdminListController',
         controllerAs: 'vm',
         data: {
-          roles: ['admin']
+          roles: ['clubadmin','admin','coordinator','user']
         }
       })
       .state('admin.articles.create', {
@@ -29,7 +32,7 @@
         controller: 'ArticlesAdminController',
         controllerAs: 'vm',
         data: {
-          roles: ['admin']
+          roles: ['clubadmin','admin','coordinator']
         },
         resolve: {
           articleResolve: newArticle
@@ -41,7 +44,7 @@
         controller: 'ArticlesAdminController',
         controllerAs: 'vm',
         data: {
-          roles: ['admin'],
+          roles: ['admin','clubadmin','coordinator'],
           pageTitle: '{{ articleResolve.title }}'
         },
         resolve: {

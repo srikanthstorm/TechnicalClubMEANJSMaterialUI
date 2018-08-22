@@ -18,7 +18,7 @@
         controller: 'SettingsController',
         controllerAs: 'vm',
         data: {
-          roles: ['user', 'admin']
+          roles: ['user', 'admin','clubadmin','coordinator']
         }
       })
       .state('settings.profile', {
@@ -27,7 +27,7 @@
         controller: 'EditProfileController',
         controllerAs: 'vm',
         data: {
-          pageTitle: 'Settings'
+          roles: ['user', 'admin','clubadmin','coordinator']
         }
       })
       .state('settings.password', {
@@ -36,7 +36,7 @@
         controller: 'ChangePasswordController',
         controllerAs: 'vm',
         data: {
-          pageTitle: 'Settings password'
+          roles: ['user', 'admin','clubadmin','coordinator']
         }
       })
       .state('settings.accounts', {
@@ -45,7 +45,7 @@
         controller: 'SocialAccountsController',
         controllerAs: 'vm',
         data: {
-          pageTitle: 'Settings accounts'
+          roles: ['user', 'admin','clubadmin','coordinator']
         }
       })
       .state('settings.picture', {
@@ -54,7 +54,7 @@
         controller: 'ChangeProfilePictureController',
         controllerAs: 'vm',
         data: {
-          pageTitle: 'Settings picture'
+          roles: ['user', 'admin','clubadmin','coordinator']
         }
       })
       .state('authentication', {
@@ -85,7 +85,10 @@
       .state('password', {
         abstract: true,
         url: '/password',
-        template: '<ui-view/>'
+        template: '<ui-view/>',
+        data: {
+          roles: ['*']
+        }
       })
       .state('password.forgot', {
         url: '/forgot',
@@ -93,26 +96,29 @@
         controller: 'PasswordController',
         controllerAs: 'vm',
         data: {
-          pageTitle: 'Password forgot'
+          roles: ['*']
         }
       })
       .state('password.reset', {
         abstract: true,
         url: '/reset',
-        template: '<ui-view/>'
+        template: '<ui-view/>',
+        data: {
+          roles: ['*']
+        }
       })
       .state('password.reset.invalid', {
         url: '/invalid',
         templateUrl: '/modules/users/client/views/password/reset-password-invalid.client.view.html',
         data: {
-          pageTitle: 'Password reset invalid'
+          roles: ['*']
         }
       })
       .state('password.reset.success', {
         url: '/success',
         templateUrl: '/modules/users/client/views/password/reset-password-success.client.view.html',
         data: {
-          pageTitle: 'Password reset success'
+          roles: ['*']
         }
       })
       .state('password.reset.form', {
@@ -121,7 +127,7 @@
         controller: 'PasswordController',
         controllerAs: 'vm',
         data: {
-          pageTitle: 'Password reset form'
+          roles: ['*']
         }
       });
   }

@@ -12,13 +12,19 @@
       .state('articles', {
         abstract: true,
         url: '/articles',
-        template: '<ui-view/>'
+        template: '<ui-view/>',
+        data: {
+          roles: ['clubadmin','admin','coordinator']
+        }
       })
       .state('articles.list', {
         url: '',
         templateUrl: '/modules/articles/client/views/list-articles.client.view.html',
         controller: 'ArticlesListController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        data: {
+          roles: ['clubadmin','admin','coordinator','user']
+        }
       })
       .state('articles.view', {
         url: '/:articleId',
@@ -29,7 +35,7 @@
           articleResolve: getArticle
         },
         data: {
-          pageTitle: '{{ articleResolve.title }}'
+          roles: ['clubadmin','admin','coordinator','user']
         }
       });
   }

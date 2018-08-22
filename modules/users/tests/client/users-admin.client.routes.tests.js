@@ -87,7 +87,7 @@
           $httpBackend = _$httpBackend_;
 
           // Ignore parent template gets on state transition
-          $httpBackend.whenGET('/modules/users/client/views/admin/list-users.client.view.html').respond(200);
+         // $httpBackend.whenGET('/modules/users/client/views/admin/list-users.client.view.html').respond(200);
           $httpBackend.whenGET('/modules/core/client/views/home.client.view.html').respond(200);
 
           $state.go('admin.users');

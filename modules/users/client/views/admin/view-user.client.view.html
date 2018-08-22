@@ -1,51 +1,152 @@
-<section>
-  <div class="page-header">
-    <div class="row">
-      <div class="col-md-6">
-        <h1 ng-bind="vm.user.username"></h1>
-      </div>
-      <div class="col-md-4">
-        <a class="btn btn-primary" ui-sref="admin.user-edit({userId: vm.user._id})">
-          <i class="glyphicon glyphicon-edit"></i>
-        </a>
-        <a class="btn btn-primary" ng-click="vm.remove()" ng-if="!vm.isContextUserSelf()">
-          <i class="glyphicon glyphicon-trash"></i>
-        </a>
-      </div>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-8">
+<section><br><br>
+  <div class="container bootstrap snippet">
       <div class="row">
-        <div class="col-md-3"><strong>First Name</strong></div>
-        <div class="col-md-6" ng-bind="vm.user.firstName"></div>
+        <div class="col-sm-10" ><h3 ng-bind="vm.user.displayName"></h3></div>
+       
       </div>
-      <hr/>
       <div class="row">
-        <div class="col-md-3"><strong>Last Name</strong></div>
-        <div class="col-md-6" ng-bind="vm.user.lastName"></div>
-      </div>
-      <hr/>
-      <div class="row">
-        <div class="col-md-3"><strong>Email</strong></div>
-        <div class="col-md-6" ng-bind="vm.user.email"></div>
-      </div>
-      <hr/>
-      <div class="row">
-        <div class="col-md-3"><strong>Provider</strong></div>
-        <div class="col-md-6" ng-bind="vm.user.provider"></div>
-      </div>
-      <hr/>
-      <div class="row">
-        <div class="col-md-3"><strong>Created</strong></div>
-        <div class="col-md-6" ng-bind="vm.user.created"></div>
-      </div>
-      <hr/>
-      <div class="row">
-        <div class="col-md-3"><strong>Roles</strong></div>
-        <div class="col-md-6" ng-bind="vm.user.roles"></div>
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="col-sm-3"><!--left col-->
+                
+  
+        <div class="text-center">
+          <img   ng-src="{{vm.user.profileImageURL}}"  class="avatar" alt="avatar">
+         
+          
+        </div><hr><br>
+  
+                 
+            <div class="panel panel-default">
+              <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
+              <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
+            </div>
+            
+            
+            <ul class="list-group">
+              <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+              <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> 125</li>
+              <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
+              <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
+              <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
+            </ul> 
+                 
+            <div class="panel panel-default">
+              <div class="panel-heading">Social Media</div>
+              <div class="panel-body">
+                <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
+              </div>
+            </div>
+            
+          </div><!--/col-3-->
+        <div class="col-sm-9">
+              <ul class="nav nav-tabs">
+                  <li class="active"><a data-toggle="tab" href="#home">Info</a></li>
+                  <li><a data-toggle="tab" href="#messages">Club Activity</a></li>
+                  <li><a data-toggle="tab" href="#settings">Menu 2</a></li>
+                </ul>
+  
+                
+            <div class="tab-content">
+              <div class="tab-pane active" id="home">
+                 
+                    <form class="form"  id="registrationForm">
+                        <div class="form-group">
+                            
+                            <div class="col-xs-6">
+                                <label for="firstName"><h5>First name</h5></label>
+                                <input type="text" class="form-control" name="firstName" id="firstName" ng-model="vm.user.firstName" placeholder="first name" title="enter your first name if any.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            
+                            <div class="col-xs-6">
+                              <label for="lastName"><h5>Last name</h5></label>
+                                <input type="text" class="form-control" name="lastName" id="lastName" ng-model="vm.user.lastName" placeholder="last name" title="enter your last name if any.">
+                            </div>
+                        </div>
+            
+                        <div class="form-group">
+                            
+                            <div class="col-xs-6">
+                                <label for="phone"><h5>Phone</h5></label>
+                                <input type="text" class="form-control" name="phone" id="phone" ng-model="vm.user.contact" placeholder="enter phone" title="enter your phone number if any.">
+                            </div>
+                        </div>
+            
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                               <label for="mobile"><h5>Branch</h5></label>
+                                <input type="text" class="form-control" name="mobile" id="mobile" ng-model="vm.user.branch" placeholder="enter mobile number" title="enter your mobile number if any.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="col-xs-6">
+                             <label for="mobile"><h5>Section</h5></label>
+                              <input type="text" class="form-control" name="mobile" id="mobile" ng-model="vm.user.section" placeholder="enter mobile number" title="enter your mobile number if any.">
+                          </div>
+                      </div>
+                        <div class="form-group">
+                            
+                            <div class="col-xs-6">
+                                <label for="email"><h5>Email</h5></label>
+                                <input type="email" class="form-control" name="email" id="email" ng-model="vm.user.email" placeholder="you@email.com" title="enter your email." disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            
+                          <div class="col-xs-6">
+                              <label for="email"><h5>Clubs</h5></label>
+                              <input type="text" class="form-control" name="email" id="email" ng-model="vm.user.clubs" placeholder="you@email.com" title="enter your email.">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                            
+                        <div class="col-xs-6">
+                            <label for="email"><h5>Domain</h5></label>
+                            <input type="text" class="form-control" name="email" id="email" ng-model="vm.user.domain" placeholder="you@email.com" title="enter your email.">
+                        </div>
+                    </div>
+                       
+                        <div class="form-group">
+                            
+                            <div class="col-xs-6">
+                                <label for="password"><h5>Registered No</h5></label>
+                                <input type="text" class="form-control" name="password" id="password" ng-model="vm.user.rollno" placeholder="password" title="enter your password.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            
+                            <div class="col-xs-6">
+                              <label for="password2"><h5>Year</h5></label>
+                                <input type="text" class="form-control" name="password2" id="password2" ng-model="vm.user.yof" placeholder="password2" title="enter your password2.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                             <div class="col-xs-12">
+                                  <br>
+                                  <button class="btn btn-sm btn-success" ng-click="updateUser()">Update</button>
+                                  <button class="btn btn-sm btn-danger pull-right" ng-click="vm.remove()">Delete</button>
+
+                                 </div>
+                        </div>
+                  </form>
+                
+                <hr>
+                
+               </div><!--/tab-pane-->
+               <div class="tab-pane" id="messages">
+                 
+                 
+               </div><!--/tab-pane-->
+               <div class="tab-pane" id="settings">
+                  
+                </div>
+                 
+                </div><!--/tab-pane-->
+            </div><!--/tab-content-->
+  
+          </div><!--/col-9-->
+      </div><!--/row-->
+                                                        
+  </section>
+  

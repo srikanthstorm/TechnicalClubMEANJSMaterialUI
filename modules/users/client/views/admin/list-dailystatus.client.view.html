@@ -1,0 +1,101 @@
+<section>
+        <div class="page-header">
+          <div class="row">
+            <div class="col-md-3">
+              <h1>Daily Status</h1>
+            </div>
+            <div class="col-md-2" style="margin-top: 2em">
+              <input class="form-control col-md-4" type="text" ng-model="search" placeholder="Search" ng-change="figureOutItemsToDisplay()" />
+            </div>
+            
+           
+              <div class="col-md-2" style="margin-top: 2em">
+                    <div class="form-group" >
+                          
+                            
+                                    <p class="input-group">
+                                      <input type="text" class="form-control" name="startDate" placeholder="Start date" uib-datepicker-popup="{{format}}" ng-model="startDate" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                      <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                      </span>
+                                    </p>
+<!--                                                                 
+                            <div ng-messages=" userForm.jdt.$error" role="alert">
+                              <p class="help-block error-text" ng-message="required">Last name is required.</p>
+                            </div> -->
+                          </div>
+                </div>
+                <div class="col-md-2" style="margin-top: 2em">
+                        <div class="form-group" >
+                              
+<!--                                 
+                                        <p class="input-group">
+                                          <input type="text" class="form-control" name="jdt" placeholder="End date" uib-datepicker-popup="{{format}}" ng-model="credentials.jdt" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                          <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="open1($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                          </span>
+                                        </p> -->
+<!--                                                                 
+                                <div ng-messages=" userForm.jdt.$error" role="alert">
+                                  <p class="help-block error-text" ng-message="required">Last name is required.</p>
+                                </div> -->
+                              </div>
+                    </div>
+
+            <div class="col-md-2" style="margin-top: 2em">
+                    <button ng-click="dateFilter()" class="btn btn-sm btn-primary">Apply</button>
+                  
+                  </div>
+                
+          </div>
+          <div class="col-md-4">
+              <div class="form-group" >
+                      <label for="role">Domain</label>
+                      <select  id="role" name="role" class="form-control" ng-model="filter.domain" ng-options="x.domain for x in pagedItems" ng-change="dateFilter()">
+                              <option value="" disabled selected>Select Role</option>
+                          </select>
+                      <!-- <div ng-messages="userForm.roles.$error" role="alert">
+                        <p class="help-block error-text" ng-message="required">Role is required.</p>
+                      </div> -->
+                    </div>
+          </div>
+        </div>
+        <!-- <div class="list-group">
+          <a ng-repeat="user in pagedItems" ui-sref="admin.user({userId: user._id})" class="list-group-item">
+            <h4 class="list-group-item-heading" ng-bind="user.date"></h4>
+            <p class="list-group-item-text pull-right small" ng-bind="user.role"></p>
+            <!-- <p class="list-group-item-text" ng-bind="user.email"></p> -->
+          <!-- </a>
+        </div> --> 
+        <table class="table">
+          <thead>
+            <tr>
+                <th>Club</th>
+              <th>Domain</th>
+              <th>Instructor</th>
+              <th>No of attendees</th>
+              
+
+              <th>Topic Covered</th>
+              <th>description</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr  ng-repeat="user in pagedItems">
+                <td ng-bind="user.club"></td>
+                <td ng-bind="user.domain"></td>
+                <td ng-bind="user.displayName"></td>
+                <td ng-bind="user.attendees" class="align-center"></td>
+              <td ng-bind="user.title"></td>
+                <td ng-bind="user.description"></td>
+             
+            </tr>
+           
+           
+          </tbody>
+        </table>
+      
+        <uib-pagination boundary-links="true" max-size="8" items-per-page="itemsPerPage" total-items="filterLength" ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>
+      </section>
+      

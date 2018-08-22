@@ -11,7 +11,10 @@
   function menuConfig(Menus) {
     Menus.addSubMenuItem('topbar', 'admin', {
       title: 'Manage Articles',
-      state: 'admin.articles.list'
+      state: 'admin.articles.list',
+      data: {
+        roles: ['clubadmin','admin']
+      }
     });
   }
 }());

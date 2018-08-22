@@ -1,0 +1,184 @@
+<div>
+        <h3 class="text-center">Create New Member</h3>
+   
+          <form name="userForm"  class="signin" novalidate autocomplete="off">
+            <fieldset>
+             
+             <div class="row">
+                    <div class="col-md-4">
+                              
+                            <div class="form-group" show-errors>
+                                  <label for="email">Email</label>
+                                  <input type="email" id="email" name="email" class="form-control" ng-model="credentials.email" placeholder="Email" lowercase required>
+                                  <div ng-messages=" userForm.email.$error" role="alert">
+                                    <p class="help-block error-text" ng-message="required">Email address is required.</p>
+                                    <p class="help-block error-text" ng-message="email">Email address is invalid.</p>
+                                  </div>
+                                </div>
+                                              </div>
+                    <div class="col-md-4">
+                            <div class="form-group" show-errors>
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" name="firstName" class="form-control" ng-model="credentials.firstName" placeholder="First Name" required autofocus>
+                                    <div ng-messages=" userForm.firstName.$error" role="alert">
+                                      <p class="help-block error-text" ng-message="required">First name is required.</p>
+                                    </div>
+                                  </div>
+                        </div>
+
+                        <div class="col-md-4">
+                                <div class="form-group" show-errors>
+                                        <label for="lastName">Last Name</label>
+                                        <input type="text" id="lastName" name="lastName" class="form-control" ng-model="credentials.lastName" placeholder="Last Name" required>
+                                        <div ng-messages=" userForm.lastName.$error" role="alert">
+                                          <p class="help-block error-text" ng-message="required">Last name is required.</p>
+                                        </div>
+                                      </div>
+                            </div>
+                          
+                            
+                    </div>
+                    <div class="row">
+
+                          
+        
+                                <div class="col-md-4">
+                                        <div class="form-group" show-errors>
+                                                <label for="password">Password</label>
+                                                  <input type="password" id="password" name="password" class="form-control" ng-model=" credentials.password" placeholder="Password"  popover-trigger="outsideClick" password-validator required>
+                                                <div ng-messages=" userForm.password.$error" role="alert">
+                                                  <p class="help-block error-text" ng-message="required">Password is required.</p>
+                                                  <div ng-repeat="passwordError in passwordErrors">
+                                                    <p class="help-block error-text" ng-show=" userForm.password.$error.requirements">{{passwordError}}</p>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                            <div class="form-group" show-errors>
+                                                    <label for="rollno">Registered No</label>
+                                                    <input type="text" id="rollno" name="rollno" class="form-control" ng-model="credentials.rollno" placeholder="Roll No" required>
+                                                    <div ng-messages=" userForm.rollno.$error" role="alert">
+                                                      <p class="help-block error-text" ng-message="required">Registered No is required.</p>
+                                                    </div>
+                                                  </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                                <div class="form-group" show-errors>
+                                                        <label for="yof">Year Of Study</label>
+                                                        <select  id="yof" name="yof" class="form-control" ng-model="credentials.yof" ng-options="x for x in year">
+                                                                <option value="" disabled selected>Select Year</option>
+                                                            </select>
+                                                        <div ng-messages=" userForm.yof.$error" role="alert">
+                                                          <p class="help-block error-text" ng-message="required">Year Of Study is required.</p>
+                                                        </div>
+                                                      </div>
+                                            </div>
+                                    
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-4">
+                                            <div class="form-group" show-errors>
+                                                    <label for="branch">Branch</label>
+                                                    <select  id="branch" name="branch" class="form-control" ng-model="credentials.branch" ng-options="x for x in branch">
+                                                            <option value="" disabled selected>Select Branch</option>
+                                                        </select>
+                                                    <div ng-messages=" userForm.branch.$error" role="alert">
+                                                      <p class="help-block error-text" ng-message="required">Branch is required.</p>
+                                                    </div>
+                                                  </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                                <div class="form-group" show-errors>
+                                                        <label for="section">Section</label>
+                                                        <select  id="section" name="section" class="form-control" ng-model="credentials.section" ng-options="x for x in section">
+                                                                <option value="" disabled selected>Select Section</option>
+                                                            </select>
+                                                        <div ng-messages=" userForm.section.$error" role="alert">
+                                                          <p class="help-block error-text" ng-message="required">Year Of Study is required.</p>
+                                                        </div>
+                                                      </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                    <div class="form-group" show-errors>
+                                                            <label for="clubs">Club</label>
+                                                            <select  id="clubs" name="clubs" class="form-control" ng-model="credentials.clubs" ng-options="x for x in clubs">
+                                                                    <option value="" disabled selected>Select Club</option>
+                                                                </select>
+                                                            <div ng-messages=" userForm.clubs.$error" role="alert">
+                                                              <p class="help-block error-text" ng-message="required">Year Of Study is required.</p>
+                                                            </div>
+                                                          </div>
+                                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-4">
+                                            <div class="form-group">
+                                                    <label for="domain">Registered Domain</label>
+                                                    <select  id="domain"  class="form-control" ng-model="credentials.domain" ng-options="x for x in domains">
+                                                            <option value="" disabled selected>Select Domain</option>
+                                                        </select>
+                                                <div ng-messages=" userForm.domain.$error" role="alert">
+                                                      <p class="help-block error-text" ng-message="required">Year Of Study is required.</p>
+                                                    </div>
+                                                  </div> 
+                                        </div>
+                                        <div class="col-md-4">
+                                                <div class="form-group" show-errors>
+                                                        <label for="contact">Contact No</label>
+                                                        <input type="contact" id="Contact" name="conatct" class="form-control" ng-model="credentials.contact" placeholder="Contact No" required>
+                                                        <div ng-messages=" userForm.contact.$error" role="alert">
+                                                          <p class="help-block error-text" ng-message="required">Last name is required.</p>
+                                                        </div>
+                                                      </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                    <div class="form-group" show-errors>
+                                                            <label for="lastName">Joining Date</label>
+                                                            
+                                                                    <p class="input-group">
+                                                                      <input type="text" class="form-control" name="jdt" uib-datepicker-popup="{{format}}" ng-model="credentials.date" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                                                      <span class="input-group-btn">
+                                                                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                                      </span>
+                                                                    </p>
+<!--                                                                 
+                                                            <div ng-messages=" userForm.jdt.$error" role="alert">
+                                                              <p class="help-block error-text" ng-message="required">Last name is required.</p>
+                                                            </div> -->
+                                                          </div>
+                                                </div>
+                            </div>
+             
+             <div class="row">
+
+              <div class="col-md-4">
+                <div class="form-group" show-errors>
+                        <label for="role">Role</label>
+                        <select  id="role" name="role" class="form-control" ng-model="credentials.role" ng-options="x for x in roles">
+                                <option value="" disabled selected>Select Role</option>
+                            </select>
+                        <div ng-messages="userForm.roles.$error" role="alert">
+                          <p class="help-block error-text" ng-message="required">Role is required.</p>
+                        </div>
+                      </div>
+            </div>
+
+
+             </div>
+               
+   
+            
+              <div class="form-group" ng-show="! userForm.password.$error.required">
+                <label>Password Requirements</label>
+                <uib-progressbar value="requirementsProgress" type="{{requirementsColor}}"><span style="color:white; white-space:nowrap;">{{requirementsProgress}}%</span></uib-progressbar>
+              </div>
+              <div class="text-center form-group">
+                <button ng-click="register()" class="btn btn-sm btn-primary">Register</button>
+              
+              </div>
+            </fieldset>
+          </form>
+       
+      </div>
+      

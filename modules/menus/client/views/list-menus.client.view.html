@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Menus</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="menu in vm.menus"
+       ui-sref="menus.view({ menuId: menu._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="menu.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="menu.user" ng-bind="menu.user.displayName"></span>
+        <span ng-if="!menu.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="menu.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.menus.$resolved && !vm.menus.length">
+    No Menus yet, why don't you <a ui-sref="menus.create">create one</a>?
+  </div>
+</section>

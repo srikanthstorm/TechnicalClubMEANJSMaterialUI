@@ -5,15 +5,15 @@
     .module('users.admin')
     .controller('UserController', UserController);
 
-  UserController.$inject = ['$scope', '$state', '$window', 'Authentication', 'userResolve', 'Notification'];
+  UserController.$inject = ['$scope', '$state', '$window', 'Authentication', 'userResolve', 'Notification','myservice'];
 
-  function UserController($scope, $state, $window, Authentication, user, Notification) {
+  function UserController($scope, $state, $window, Authentication, user, Notification,myservice) {
     var vm = this;
 
     vm.authentication = Authentication;
     vm.user = user;
     vm.remove = remove;
-    vm.update = update;
+ 
     vm.isContextUserSelf = isContextUserSelf;
 
     function remove(user) {
@@ -32,23 +32,24 @@
       }
     }
 
-    function update(isValid) {
-      if (!isValid) {
-        $scope.$broadcast('show-errors-check-validity', 'vm.userForm');
+    $scope.updateUser=function() {
+      // if (!isValid) {
+      //   $scope.$broadcast('show-errors-check-validity', 'vm.userForm');
 
-        return false;
-      }
+      //   return false;
+      // }
+      myservice.updateUser(vm.user).then(function (response) {
+        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> User Updated successfully!' });
 
-      var user = vm.user;
-
-      user.$update(function () {
-        $state.go('admin.user', {
-          userId: user._id
-        });
-        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> User saved successfully!' });
-      }, function (errorResponse) {
-        Notification.error({ message: errorResponse.data.message, title: '<i class="glyphicon glyphicon-remove"></i> User update error!' });
       });
+//       var user = vm.user;
+// console.log(user);
+//       user.$update(function () {
+       
+//         Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> User saved successfully!' });
+//       }, function (errorResponse) {
+//         Notification.error({ message: errorResponse.data.message, title: '<i class="glyphicon glyphicon-remove"></i> User update error!' });
+//       });
     }
 
     function isContextUserSelf() {

@@ -14,7 +14,38 @@
         url: '/users',
         templateUrl: '/modules/users/client/views/admin/list-users.client.view.html',
         controller: 'UserListController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        data: {
+          roles: ['clubadmin','admin']
+        }
+      })
+      
+      .state('admin.managedailystatus', {
+        url: '/managedailystatus',
+        templateUrl: '/modules/users/client/views/admin/manage-dailystatus.client.view.html',
+        controller: 'DailyStatusController',
+        data: {
+          roles: ['clubadmin','admin','coordinator']
+        }
+     
+      })
+      .state('admin.dailystatus', {
+        url: '/listdailystatus',
+        templateUrl: '/modules/users/client/views/admin/list-dailystatus.client.view.html',
+        controller: 'ListDailyStatusController',
+        data: {
+          roles: ['clubadmin','admin']
+        }
+     
+      })
+      .state('admin.createusers', {
+        url: '/createusers',
+        templateUrl: '/modules/users/client/views/admin/create-user.client.view.html',
+        controller: 'CreateUsersController',
+        controllerAs: 'vm',
+        data: {
+          roles: ['clubadmin','admin','coordinator']
+        }
       })
       .state('admin.user', {
         url: '/users/:userId',
@@ -25,7 +56,7 @@
           userResolve: getUser
         },
         data: {
-          pageTitle: '{{ userResolve.displayName }}'
+          roles: ['clubadmin','admin']
         }
       })
       .state('admin.user-edit', {
@@ -37,7 +68,7 @@
           userResolve: getUser
         },
         data: {
-          pageTitle: '{{ userResolve.displayName }}'
+          roles: ['clubadmin','admin']
         }
       });
 
