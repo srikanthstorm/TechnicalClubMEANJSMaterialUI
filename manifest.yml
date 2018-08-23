@@ -1,13 +1,4 @@
----
-declared-services:
-  mean-mongo:
-    label: mongodb
-    plan: 100
 applications:
-- name: mean
-  host: mean-${random-word}
-  memory: 128M
-  services:
-  - mean-mongo
-  env:
-    NODE_ENV: cloud-foundry
+- name: my-apwep
+  memory: 512M
+  
