@@ -1,3 +1,5 @@
+<div ng-hide="$state.current.name != 'home'">
+
 <div class="container" ng-controller="HeaderController as vm">
   <div class="navbar-header">
     <button class="navbar-toggle" type="button" ng-click="vm.isCollapsed = !vm.isCollapsed">
@@ -47,4 +49,5 @@
       </li>
     </ul>
   </nav>
+</div>
 </div>
