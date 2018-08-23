@@ -12,7 +12,7 @@
       $scope.branch = ["CSE", "ECE", "MECH","CIVIL","EEE"];
       $scope.section = ["A", "B", "C","D"];
       $scope.clubs = ["Technical Club", "Orators Club", "Audio Visual Club","Samskruthi Club"];
-      $scope.domains = ["MEAN Stack", "Ionic", "Cloud","IoT"];
+      $scope.domains = ["MEAN Stack", "Ionic", "Cloud","IoT","Cognitive / Chatbots"];
       if(Authentication.user.roles.indexOf('admin') != -1)
       {
         $scope.roles = ["user","coordinator","clubadmin","admin"];
