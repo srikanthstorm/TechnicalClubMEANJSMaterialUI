@@ -16,7 +16,7 @@
         controller: 'UserListController',
         controllerAs: 'vm',
         data: {
-          roles: ['clubadmin','admin']
+          roles: ['clubadmin','admin','coordinator']
         }
       })
       
@@ -56,7 +56,7 @@
           userResolve: getUser
         },
         data: {
-          roles: ['clubadmin','admin']
+          roles: ['clubadmin','admin','coordinator']
         }
       })
       .state('admin.user-edit', {

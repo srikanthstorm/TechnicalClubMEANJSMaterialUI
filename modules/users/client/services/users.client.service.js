@@ -184,7 +184,22 @@ angular.module('users.services').service('myservice', [ '$window', '$http','$q' 
  
     return deferred.promise;
   }
+  this.getOnlyUsers = function () {
 
+    var deferred = $q.defer();
+ 
+
+    $http.get('/api/users/getOnlyUsers')
+            .success(function (response) {
+              deferred.resolve(response);
+            })
+            .error(function (msg,code) {
+              deferred.reject(msg);
+ 
+            });
+ 
+    return deferred.promise;
+  }
 
   this.getDailyStatus = function () {
 

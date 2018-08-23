@@ -20,23 +20,30 @@
 {
   $scope.isAdmin=true;
   console.log("Admin");
-  AdminService.query(function (data) {
-    $scope.users = data;
+  AdminService.query(function (admindata) {
+    $scope.users = admindata;
     $scope.buildPager();
   });  
 }
 else{
   if(Authentication.user.roles.indexOf('clubadmin') != -1)
   console.log("ClubAdmin")  
-  myservice.getUsers().then(function (response) {
-    $scope.users = response;
+  myservice.getUsers().then(function (coordresponse) {
+    $scope.users = coordresponse;
     $scope.buildPager();
 
   });
 
 }
 
-    
+if(Authentication.user.roles.indexOf('coordinator') != -1)
+console.log("coordinator")  
+myservice.getOnlyUsers().then(function (userresponse) {
+  console.log(userresponse);
+  $scope.users = userresponse;
+  $scope.buildPager();
+
+}); 
 
     function buildPager() {
       $scope.pagedItems = [];

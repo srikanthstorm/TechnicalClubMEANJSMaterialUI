@@ -172,6 +172,25 @@ console.log(users);
 };
 
 
+exports.getOnlyUsers = function (req, res) {
+  var query={};
+//query.status='active';
+query.roles={
+$eq:["user"]
+
+}
+  User.find(query).sort('_id').populate('user', 'displayName').exec(function (err, users) {
+    if (err) {
+      console.log("error")
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+console.log("Successful")
+console.log(users);
+    res.json(users);
+  });
+};
 
 /**
  * User middleware

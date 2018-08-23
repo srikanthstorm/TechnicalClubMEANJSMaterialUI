@@ -12,7 +12,7 @@
     menuService.addSubMenuItem('topbar', 'admin', {
       title: 'Manage Users',
       state: 'admin.users',
-      roles: ['clubadmin','admin']
+      roles: ['clubadmin','admin','coordinator']
     });
    
     menuService.addSubMenuItem('topbar', 'admin', {

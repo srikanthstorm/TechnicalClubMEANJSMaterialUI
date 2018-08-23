@@ -19,6 +19,8 @@ module.exports = function (app) {
   app.route('/api/users/dailystatus').post(admin.postdailystatus);
   app.route('/api/users/getDailyStatus').get(admin.getDailyStatus);
   app.route('/api/users/getUsers').get(admin.getUsers);
+  app.route('/api/users/getOnlyUsers').get(admin.getOnlyUsers);
+
   app.route('/api/users/updateUser').post(admin.updateUser);
 
   app.route('/api/users/create').post(adminPolicy.isAllowed,admin.createuser);
