@@ -27,11 +27,20 @@
     });
 
     $stateProvider
+      // .state('home', {
+      //   url: '/',
+      //   templateUrl: '/modules/users/client/views/signin.client.view.html',
+      //   controller: 'HomeController',
+      //   controllerAs: 'vm'
+      // })
       .state('home', {
         url: '/',
-        templateUrl: '/modules/core/client/views/home.client.view.html',
-        controller: 'HomeController',
-        controllerAs: 'vm'
+        templateUrl: '/modules/users/client/views/authentication/signin.client.view.html',
+        controller: 'AuthenticationController',
+        controllerAs: 'vm',
+        data: {
+          pageTitle: 'Signin'
+        }
       })
       .state('not-found', {
         url: '/not-found',
