@@ -21,6 +21,7 @@
   $scope.isAdmin=true;
   console.log("Admin");
   AdminService.query(function (admindata) {
+  //  console.log(admindata);
     $scope.users = admindata;
     $scope.buildPager();
   });  
@@ -36,7 +37,7 @@ else{
 
 }
 
-if(Authentication.user.roles.indexOf('coordinator') != -1)
+if(Authentication.user.roles.indexOf('coordinator') != -1){
 console.log("coordinator")  
 myservice.getOnlyUsers().then(function (userresponse) {
   console.log(userresponse);
@@ -44,7 +45,7 @@ myservice.getOnlyUsers().then(function (userresponse) {
   $scope.buildPager();
 
 }); 
-
+  }
     function buildPager() {
       $scope.pagedItems = [];
       $scope.itemsPerPage = 15;
