@@ -8,6 +8,7 @@
     ListDailyStatusController.$inject = ['$scope', '$filter', 'AdminService','myservice'];
   
     function ListDailyStatusController($scope, $filter, AdminService,myservice) {
+
       var vm = this;
       $scope.today = function() {
         $scope.dt = new Date();

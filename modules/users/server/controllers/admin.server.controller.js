@@ -139,7 +139,7 @@ exports.list = function (req, res) {
 };
 
 exports.getDailyStatus = function (req, res) {
-  Status.find({}).sort('_id').populate('user', 'displayName').exec(function (err, users) {
+  Status.find({}).sort('_id').populate('user', 'displayName').sort({"_id":-1}).exec(function (err, users) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)

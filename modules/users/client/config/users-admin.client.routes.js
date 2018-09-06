@@ -19,6 +19,16 @@
           roles: ['clubadmin','admin','coordinator']
         }
       })
+       $stateProvider
+      .state('admin.clubdetails', {
+        url: '/clubdetails',
+        templateUrl: '/modules/users/client/views/admin/club-details.client.view.html',
+        controller: 'ClubDetailsController',
+        controllerAs: 'vm',
+        data: {
+          roles: ['clubadmin','admin']
+        }
+      })
       
       .state('admin.managedailystatus', {
         url: '/managedailystatus',

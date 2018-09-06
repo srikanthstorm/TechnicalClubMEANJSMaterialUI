@@ -3,16 +3,33 @@
   
     angular
       .module('users.admin')
-      .controller('CreateUsersController', CreateUsersController);
+      .controller('ClubDetailsController', ClubDetailsController);
   
-      CreateUsersController.$inject = ['$scope', '$state', 'UsersService', '$location', '$window', 'Authentication', 'PasswordValidator', 'Notification','myservice'];
+      ClubDetailsController.$inject = ['$scope', '$state', 'UsersService', '$location', '$window', 'Authentication', 'PasswordValidator', 'Notification','myservice'];
   
-    function CreateUsersController($scope, $state, UsersService, $location, $window, Authentication, PasswordValidator, Notification, myservice) {
+    function ClubDetailsController($scope, $state, UsersService, $location, $window, Authentication, PasswordValidator, Notification, myservice) {
       $scope.year = ["I", "II", "III","IV"];
       $scope.branch = ["CSE", "ECE", "MECH","CIVIL","EEE"];
       $scope.section = ["A", "B", "C","D"];
       $scope.clubs = ["Technical Club", "Orators Club", "Audio Visual Club","Samskruthi Club","Photoshop Club"];
       $scope.domains = ["MEAN Stack", "Ionic", "Cloud","IoT","Cognitive / Chatbots","Design","Communications"];
+      $scope.clubdata={};
+//      $scope.clubdata["club"]=[];
+//        
+//        console.log(typeof($scope.clubdata))
+//        $scope.clubdata["club"].push("hi");
+//        console.log($scope.clubdata.club)
+     // $scope.clubdata.club.domains = [];
+      $scope.addDomain = function(){
+          console.log(typeof($scope.clubdata[$scope.club.domain]));
+          if(typeof($scope.clubdata[$scope.club.clubname])== "undefined"){
+           console.log("true")
+              $scope.clubdata[$scope.club.clubname]=[];
+          }
+         $scope.clubdata[$scope.club.clubname].push($scope.club.domain);
+          console.log( "After adding", $scope.clubdata)
+            
+        }
       if(Authentication.user.roles.indexOf('admin') != -1)
       {
         $scope.roles = ["user","coordinator","clubadmin","admin"];

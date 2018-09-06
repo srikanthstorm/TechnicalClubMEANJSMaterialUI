@@ -1,16 +1,14 @@
 <div>
-        <h3 class="text-center">Create New Member</h3>
+        <h3 class="text-center">Add Club Details</h3>
    
           <form name="userForm"  class="signin" novalidate autocomplete="off">
             <fieldset>
-              <a ui-sref="admin.clubdetails" class="btn btn-info btn-lg">
-          <span class="glyphicon glyphicon-plus-sign"></span> Plus
-        </a>
+             
              <div class="row">
                     <div class="col-md-4">
                               
                             <div class="form-group" show-errors>
-                                  <label for="email">Email</label>
+                                  <label for="email">Club Name</label>
                                   <input type="email" id="email" name="email" class="form-control" ng-model="credentials.email" placeholder="Email" lowercase required>
                                   <div ng-messages=" userForm.email.$error" role="alert">
                                     <p class="help-block error-text" ng-message="required">Email address is required.</p>
@@ -20,8 +18,8 @@
                                               </div>
                     <div class="col-md-4">
                             <div class="form-group" show-errors>
-                                    <label for="firstName">First Name</label>
-                                    <input type="text" id="firstName" name="firstName" class="form-control" ng-model="credentials.firstName" placeholder="First Name" required autofocus>
+                                    <label for="firstName">Club Name</label>
+                                    <input type="text" id="firstName" name="firstName" class="form-control" ng-model="club.clubname" placeholder="First Name" required autofocus>
                                     <div ng-messages=" userForm.firstName.$error" role="alert">
                                       <p class="help-block error-text" ng-message="required">First name is required.</p>
                                     </div>
@@ -30,15 +28,21 @@
 
                         <div class="col-md-4">
                                 <div class="form-group" show-errors>
-                                        <label for="lastName">Last Name</label>
-                                        <input type="text" id="lastName" name="lastName" class="form-control" ng-model="credentials.lastName" placeholder="Last Name" required>
+                                        <label for="lastName">Domain</label>
+                                        <input type="text" id="lastName" name="lastName" class="form-control" ng-model="club.domain" placeholder="Last Name" required>
                                         <div ng-messages=" userForm.lastName.$error" role="alert">
                                           <p class="help-block error-text" ng-message="required">Last name is required.</p>
                                         </div>
                                       </div>
                             </div>
-                          
-                            
+                 
+                                 <button ng-click="addDomain()" class="btn btn-sm btn-primary">Add</button>
+
+                          {{clubdata}}
+                 <p ng-repeat="x in clubdata.club">{{x}}</p>
+                 
+<select ng-model="selectedName" ng-options="item for item in clubdata">
+</select>           
                     </div>
                     <div class="row">
 

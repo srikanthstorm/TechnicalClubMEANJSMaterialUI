@@ -13,8 +13,8 @@
       $scope.year = ["I", "II", "III","IV"];
       $scope.branch = ["CSE", "ECE", "MECH","CIVIL","EEE"];
       $scope.section = ["A", "B", "C","D"];
-      $scope.clubs = ["Technical Club", "Orators Club", "Audio Visual Club","Samskruthi Club"];
-      $scope.domains = ["MEAN Stack", "Ionic", "Cloud","IoT"];
+      $scope.clubs = ["Technical Club", "Orators Club", "Audio Visual Club","Samskruthi Club","Photoshop Club"];
+      $scope.domains = ["MEAN Stack", "Ionic", "Cloud","IoT","Cognitive / Chatbots","Design","Communications"];
       $scope.roles = ["user","coordinator","clubadmin","admin"]
       $scope.today = function() {
         $scope.dt = new Date();
@@ -94,6 +94,7 @@ console.log("I am triggered",$scope.data);
 
 $scope.data.displayName=$scope.user.displayName;
 $scope.data.email=$scope.user.email;
+$scope.data.club=$scope.data.club;
 console.log($scope.data);
 myservice.postDailyStatus($scope.data).then(function (response) {
 
