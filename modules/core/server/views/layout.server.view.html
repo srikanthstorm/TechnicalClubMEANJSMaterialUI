@@ -68,7 +68,7 @@
 
   <!--Application JavaScript Files-->
     {{#each jsFiles}}<script type="text/javascript" src="/{{this}}"></script>{{/each}}
-  
+
   <!--owasp config sync-->
   <script type="text/javascript">
     var sharedConfig = {{{ sharedConfig }}};
@@ -80,5 +80,12 @@
   <script type="text/javascript" src="{{host}}:35729/livereload.js"></script>
   {{/if}}
 </body>
+<style type="text/css">
+    .navbar {
+        background-color:#3f51b5;
+        background-image: none;
+
+    }
+</style>
 
 </html>

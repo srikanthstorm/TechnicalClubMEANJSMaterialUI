@@ -24,11 +24,11 @@
   //  console.log(admindata);
     $scope.users = admindata;
     $scope.buildPager();
-  });  
+  });
 }
 else{
   if(Authentication.user.roles.indexOf('clubadmin') != -1)
-  console.log("ClubAdmin")  
+  console.log("ClubAdmin")
   myservice.getUsers().then(function (coordresponse) {
     $scope.users = coordresponse;
     $scope.buildPager();
@@ -38,13 +38,13 @@ else{
 }
 
 if(Authentication.user.roles.indexOf('coordinator') != -1){
-console.log("coordinator")  
+console.log("coordinator")
 myservice.getOnlyUsers().then(function (userresponse) {
   console.log(userresponse);
   $scope.users = userresponse;
   $scope.buildPager();
 
-}); 
+});
   }
     function buildPager() {
       $scope.pagedItems = [];
@@ -66,6 +66,7 @@ myservice.getOnlyUsers().then(function (userresponse) {
     $scope.filterByRole=function() {
       if($scope.selectedrole=="All")
       $scope.selectedrole='';
+
       $scope.filteredItems = $filter('filter')($scope.users, {
         $: $scope.selectedrole
       });

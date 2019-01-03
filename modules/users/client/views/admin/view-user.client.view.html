@@ -3,150 +3,255 @@
   <div class="container bootstrap snippet">
       <div class="row">
         <div class="col-sm-10" ><h3 ng-bind="vm.user.displayName"></h3></div>
-       
+
       </div>
       <div class="row">
         <div class="col-sm-3"><!--left col-->
-                
-  
+
+
         <div class="text-center">
           <img   ng-src="{{vm.user.profileImageURL}}"  class="avatar" alt="avatar">
-         
-          
+
+
         </div><hr><br>
-  
-                 
-            <div class="panel panel-default">
-              <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
-              <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
-            </div>
-            
-            
-            <ul class="list-group">
+        
+
+
+
+
+
+            <ul class="list-group" style="border-radius:1px">
               <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
               <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> 125</li>
               <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
               <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
               <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
-            </ul> 
-                 
+            </ul>
+
             <div class="panel panel-default">
               <div class="panel-heading">Social Media</div>
               <div class="panel-body">
                 <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
               </div>
             </div>
-            
+
           </div><!--/col-3-->
         <div class="col-sm-9">
-              <ul class="nav nav-tabs">
-                  <li class="active"><a data-toggle="tab" href="#home">Info</a></li>
-                  <li><a data-toggle="tab" href="#messages">Club Activity</a></li>
-                  <li><a data-toggle="tab" href="#settings">Menu 2</a></li>
-                </ul>
-  
-                
-            <div class="tab-content">
-              <div class="tab-pane active" id="home">
-                 
-                    <form class="form"  id="registrationForm">
-                        <div class="form-group">
-                            
-                            <div class="col-xs-6">
-                                <label for="firstName"><h5>First name</h5></label>
-                                <input type="text" class="form-control" name="firstName" id="firstName" ng-model="vm.user.firstName" placeholder="first name" title="enter your first name if any.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            
-                            <div class="col-xs-6">
-                              <label for="lastName"><h5>Last name</h5></label>
-                                <input type="text" class="form-control" name="lastName" id="lastName" ng-model="vm.user.lastName" placeholder="last name" title="enter your last name if any.">
-                            </div>
-                        </div>
-            
-                        <div class="form-group">
-                            
-                            <div class="col-xs-6">
-                                <label for="phone"><h5>Phone</h5></label>
-                                <input type="text" class="form-control" name="phone" id="phone" ng-model="vm.user.contact" placeholder="enter phone" title="enter your phone number if any.">
-                            </div>
-                        </div>
-            
-                        <div class="form-group">
-                            <div class="col-xs-6">
-                               <label for="mobile"><h5>Branch</h5></label>
-                                <input type="text" class="form-control" name="mobile" id="mobile" ng-model="vm.user.branch" placeholder="enter mobile number" title="enter your mobile number if any.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                          <div class="col-xs-6">
-                             <label for="mobile"><h5>Section</h5></label>
-                              <input type="text" class="form-control" name="mobile" id="mobile" ng-model="vm.user.section" placeholder="enter mobile number" title="enter your mobile number if any.">
-                          </div>
-                      </div>
-                        <div class="form-group">
-                            
-                            <div class="col-xs-6">
-                                <label for="email"><h5>Email</h5></label>
-                                <input type="email" class="form-control" name="email" id="email" ng-model="vm.user.email" placeholder="you@email.com" title="enter your email." disabled>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            
-                          <div class="col-xs-6">
-                              <label for="email"><h5>Clubs</h5></label>
-                              <input type="text" class="form-control" name="email" id="email" ng-model="vm.user.clubs" placeholder="you@email.com" title="enter your email.">
-                          </div>
-                      </div>
-                      <div class="form-group">
-                            
-                        <div class="col-xs-6">
-                            <label for="email"><h5>Domain</h5></label>
-                            <input type="text" class="form-control" name="email" id="email" ng-model="vm.user.domain" placeholder="you@email.com" title="enter your email.">
-                        </div>
-                    </div>
-                       
-                        <div class="form-group">
-                            
-                            <div class="col-xs-6">
-                                <label for="password"><h5>Registered No</h5></label>
-                                <input type="text" class="form-control" name="password" id="password" ng-model="vm.user.rollno" placeholder="password" title="enter your password.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            
-                            <div class="col-xs-6">
-                              <label for="password2"><h5>Year</h5></label>
-                                <input type="text" class="form-control" name="password2" id="password2" ng-model="vm.user.yof" placeholder="password2" title="enter your password2.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                             <div class="col-xs-12">
-                                  <br>
-                                  <button class="btn btn-sm btn-success" ng-click="updateUser()">Update</button>
-                                  <button class="btn btn-sm btn-danger pull-right" ng-click="vm.remove()">Delete</button>
 
-                                 </div>
-                        </div>
-                  </form>
-                
-                <hr>
-                
-               </div><!--/tab-pane-->
-               <div class="tab-pane" id="messages">
-                 
-                 
-               </div><!--/tab-pane-->
-               <div class="tab-pane" id="settings">
-                  
-                </div>
-                 
-                </div><!--/tab-pane-->
+          <md-content>
+             <md-tabs md-dynamic-height md-border-bottom>
+               <md-tab label="Info">
+                 <md-content class="md-padding">
+
+                                       <form class="form"  id="registrationForm">
+                                         <md-card>
+
+                                                <md-card-content>
+
+                                                  <div layout="row" layout-xs="column" layout-sm="column" layout-align="space-between center">
+
+
+                                                         <md-input-container>
+                                                           <md-switch ng-model="showHints">Showing {{showHints ? "Hints" : "Errors"}}</md-switch>
+                                                         </md-input-container>
+                                                       </div>
+                                                       <div layout-gt-sm="row">
+
+                                                       <md-input-container class="md-block" flex-gt-sm>
+                                                       <label>Frist Name</label>
+                                                       <input type="text"  name="firstName" id="firstName" ng-model="vm.user.firstName" title="first name  "required>
+
+                                                       <div class="hint" ng-if="showHints">Tell us what we should call you!</div>
+
+                                                       <div ng-messages="userForm.name.$error" ng-if="!showHints">
+                                                       <div ng-message="required">Name is required.</div>
+                                                       <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+                                                       </div>
+                                                       </md-input-container>
+
+                                                       <div flex="5" hide-xs hide-sm>
+                                                       <!-- Spacer //-->
+                                                       </div>
+
+                                                       <md-input-container class="md-block" flex-gt-sm>
+                                                       <label>Last Name</label>
+                                                       <input type="text"  name="lastName" id="lastName" ng-model="vm.user.lastName" title="enter your last name if any." required>
+
+
+                                                       <div ng-messages="userForm.social.$error" ng-if="!showHints">
+                                                       <div ng-message="pattern"> Please enter a valid SSN.</div>
+                                                       </div>
+                                                       </md-input-container>
+
+                                                       </div>
+
+
+                                                       <div layout-gt-sm="row">
+
+                                                       <md-input-container class="md-block" flex-gt-sm>
+                                                       <label>Email</label>
+
+                                                       <input type="email"  name="email" id="email" ng-model="vm.user.email"  title="enter your email." disabled>
+
+                                                       <div class="hint" ng-show="showHints">How can we reach you?</div>
+
+                                                       <div ng-messages="userForm.email.$error" ng-hide="showHints">
+                                                       <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                                       Your email must be between 10 and 100 characters long and look like an e-mail address.
+                                                       </div>
+                                                       </div>
+                                                       </md-input-container>
+
+                                                       <div flex="5" hide-xs hide-sm>
+                                                       <!-- Spacer //-->
+                                                       </div>
+
+                                                       <md-input-container class="md-block" flex-gt-sm>
+                                                       <label>Branch</label>
+
+                                                       <input type="text"  name="mobile" id="mobile" ng-model="vm.user.branch"  title="enter your mobile number if any.">
+
+                                                       <div class="hint" ng-show="showHints">(###) ###-####</div>
+
+                                                       <div ng-messages="userForm.phone.$error" ng-hide="showHints">
+                                                       <div ng-message="pattern">(###) ###-#### - Please enter a valid phone number.</div>
+                                                       </div>
+                                                       </md-input-container>
+                                                       </div>
+
+                                                       <div layout-gt-sm="row">
+
+                                                       <md-input-container class="md-block" flex-gt-sm>
+                                                       <label>Section</label>
+
+                                                       <input type="text" name="mobile" id="mobile" ng-model="vm.user.section"  title="enter your mobile number if any.">
+
+                                                       <div class="hint" ng-show="showHints">(###) ###-####</div>
+
+                                                       <div ng-messages="userForm.phone.$error" ng-hide="showHints">
+                                                       <div ng-message="pattern">(###) ###-#### - Please enter a valid phone number.</div>
+                                                       </div>
+                                                       </md-input-container> <div flex="5" hide-xs hide-sm>
+                                                       <!-- Spacer //-->
+                                                       </div>
+                                                       <md-input-container class="md-block" flex-gt-sm>
+                                                       <label>Clubs</label>
+
+                                                       <input type="text"  name="email" id="email" ng-model="vm.user.clubs"  title="enter your email.">
+
+                                                       <div class="hint" ng-show="showHints">(###) ###-####</div>
+
+                                                       <div ng-messages="userForm.phone.$error" ng-hide="showHints">
+                                                       <div ng-message="pattern">(###) ###-#### - Please enter a valid phone number.</div>
+                                                       </div>
+                                                       </md-input-container></div>
+                                                       <div layout-gt-sm="row">
+
+                                                       <md-input-container class="md-block" flex-gt-sm>
+                                                       <label>Domain</label>
+
+                                                       <input type="text"  name="email" id="email" ng-model="vm.user.domain"  title="enter your email.">
+
+                                                       <div class="hint" ng-show="showHints">(###) ###-####</div>
+
+                                                       <div ng-messages="userForm.phone.$error" ng-hide="showHints">
+                                                       <div ng-message="pattern">(###) ###-#### - Please enter a valid phone number.</div>
+                                                       </div>
+                                                       </md-input-container> <div flex="5" hide-xs hide-sm>
+                                                       <!-- Spacer //-->
+                                                       </div>
+                                                       <md-input-container class="md-block" flex-gt-sm>
+                                                       <label>Registered Number</label>
+
+                                                       <input type="text"  name="password" id="password" ng-model="vm.user.rollno"  title="enter your password.">
+
+                                                       <div class="hint" ng-show="showHints">(###) ###-####</div>
+
+                                                       <div ng-messages="userForm.phone.$error" ng-hide="showHints">
+                                                       <div ng-message="pattern">(###) ###-#### - Please enter a valid phone number.</div>
+                                                       </div>
+                                                       </md-input-container></div>
+                                                       <div layout-gt-sm="row">
+
+                                                       <md-input-container class="md-block" flex-gt-sm>
+                                                       <label>Year</label>
+
+                                                       <input type="text" name="password2" id="password2" ng-model="vm.user.yof"  title="enter your password2.">
+
+                                                       <div class="hint" ng-show="showHints">(###) ###-####</div>
+
+                                                       <div ng-messages="userForm.phone.$error" ng-hide="showHints">
+                                                       <div ng-message="pattern">(###) ###-#### - Please enter a valid phone number.</div>
+                                                       </div>
+                                                       </md-input-container><div flex="5" hide-xs hide-sm>
+                                                       <!-- Spacer //-->
+                                                       </div>
+
+                                                       <md-input-container class="md-block" flex-gt-sm>
+
+
+                                                       <div class="hint" ng-show="showHints">(###) ###-####</div>
+
+                                                       <div ng-messages="userForm.phone.$error" ng-hide="showHints">
+                                                       <div ng-message="pattern">(###) ###-#### - Please enter a valid phone number.</div>
+                                                       </div>
+                                                       </md-input-container>
+                                                       </div>
+                                                       <div style="text-align:center">
+                                                       <md-button class="md-raised md-primary" ng-click="updateUser()">Update</md-button>
+                                                       <md-button class="md-raised md-warn" ng-click="vm.remove()">Delete</md-button>
+</div>
+
+                                                       <style>
+                                                       /*
+                                                       * The Material demos system does not currently allow targeting the body element, so this
+                                                       * must go here in the HTML.
+                                                       */
+                                                       body[dir=rtl] .hint {
+                                                       right: 2px;
+                                                       left: auto;
+                                                       }
+                                                       </style>
+
+                                                </md-card-content>
+
+                                              </md-card>
+
+
+
+                                     </form>
+
+                   </md-content>
+               </md-tab>
+               <md-tab label="Club Activity">
+                 <md-content class="md-padding">
+                   <h1 class="md-display-2">Club Activity</h1>
+                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
+                   <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
+                   <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                 </md-content>
+               </md-tab>
+               <md-tab label="three">
+                 <md-content class="md-padding">
+                   <h1 class="md-display-2">Tab Three</h1>
+                   <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                 </md-content>
+               </md-tab>
+             </md-tabs>
+           </md-content>
+
+
+
+
+
+
+
+
+
+
             </div><!--/tab-content-->
-  
+
           </div><!--/col-9-->
       </div><!--/row-->
-                                                        
+
   </section>
-  

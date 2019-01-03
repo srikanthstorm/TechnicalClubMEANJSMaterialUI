@@ -5,35 +5,62 @@
         <h1>Users</h1>
       </div>
       <div class="col-md-3" style="margin-top: 2em">
-        <input class="form-control col-md-4" type="text" ng-model="search" placeholder="Search" ng-change="figureOutItemsToDisplay()" />
+        <md-input-container class="md-icon-float md-block">
+     <!-- Use floating label instead of placeholder -->
+     <input class="col-md-4" type="text" ng-model="search" placeholder="Search" ng-change="figureOutItemsToDisplay()" />
+   </md-input-container>
       </div>
-      
-     
+
+
         <div ng-show="isAdmin" class="col-md-3" style="margin-top: 2em">
           <div class="form-group">
-                 
-                  <select  id="role" name="role" class="form-control" ng-model="selectedrole" ng-options="x for x in roles" ng-change="filterByRole()">
+            <md-input-container class="md-block" flex-gt-sm>
+                       <label>State</label>
+                       <md-select ng-model="selectedrole" ng-change="filterByRole()">
+                         <md-option id="role" name="role" ng-repeat="x in roles"  value="{{x}}" >
+                           {{x}}
+                         </md-option>
+                       </md-select>
+                     </md-input-container>
+
+                  <!-- <select   class="form-control"  ng-options="x for x in roles" >
                           <option value="" disabled selected>Filter by Roles</option>
-                      </select>
+                      </select> -->
                   <div ng-messages="userForm.roles.$error" role="alert">
                     <p class="help-block error-text" ng-message="required">Role is required.</p>
                   </div>
                 </div>
       </div>
       <div class="col-md-3 text-center form-group">
-        <button ng-click="register()" class="btn btn-sm btn-primary" style="margin-top: 2em" ui-sref="admin.createusers">Add</button>
-      
+        <md-button ng-click="register()"  ui-sref="admin.createusers" style="margin-top: 2em" class="md-raised md-primary">+</md-button>
+
+
       </div>
-          
+
     </div>
   </div>
-  <div class="list-group">
-    <a ng-repeat="user in pagedItems" ui-sref="admin.user({userId: user._id})" class="list-group-item">
-      <h4 class="list-group-item-heading" ng-bind="user.username"></h4>
-      <p class="list-group-item-text pull-right small" ng-bind="user.roles"></p>
-      <p class="list-group-item-text" ng-bind="user.email"></p>
+
+    <a ng-repeat="user in pagedItems" class="myanchor" ui-sref="admin.user({userId: user._id})" >
+      <md-card class="cardhover" style="height:60px">
+              <md-card-content>
+                <h4 class="list-group-item-heading" >{{user.firstName}} {{user.LastName}}</h4>
+                <p class="list-group-item-text pull-right small" ng-bind="user.roles"></p>
+                <p class="list-group-item-text" ng-bind="user.email"></p>
+              </md-card-content>
+
+            </md-card>
+
+
     </a>
-  </div>
 
   <uib-pagination boundary-links="true" max-size="8" items-per-page="itemsPerPage" total-items="filterLength" ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>
 </section>
+
+<style >
+.myanchor:hover{
+  text-decoration:none;
+}
+.cardhover:hover{
+  background-color:aliceblue;
+}
+</style>
