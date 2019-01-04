@@ -1,40 +1,57 @@
 <section class="row">
-  <div class="col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-4">
+
+
+
+  <div class="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-6">
     <form name="vm.userForm" ng-submit="vm.updateUserProfile(vm.userForm.$valid)" class="signin" novalidate autocomplete="off">
-      <fieldset>
-        <div class="form-group" show-errors>
-          <label for="firstName">First Name</label>
-          <input type="text" id="firstName" name="firstName" class="form-control" ng-model="vm.user.firstName" placeholder="First Name" required autofocus>
-          <div ng-messages="vm.userForm.firstName.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">First name is required.</p>
-          </div>
-        </div>
-        <div class="form-group" show-errors>
-          <label for="lastName">Last Name</label>
-          <input type="text" id="lastName" name="lastName" class="form-control" ng-model="vm.user.lastName" placeholder="Last Name" required>
-          <div ng-messages="vm.userForm.lastName.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Last name is required.</p>
-          </div>
-        </div>
-        <div class="form-group" show-errors>
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" class="form-control" ng-model="vm.user.email" placeholder="Email" lowercase required>
-          <div ng-messages="vm.userForm.email.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Email address is required.</p>
-            <p class="help-block error-text" ng-message="email">Email address is invalid.</p>
-          </div>
-        </div>
-        <div class="form-group" show-errors>
-          <label for="username">Username</label>
-          <input type="text" id="username" name="username" class="form-control" ng-model="vm.user.username" placeholder="Username" lowercase required>
-          <div ng-messages="vm.userForm.username.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Username is required.</p>
-          </div>
-        </div>
-        <div class="text-center form-group">
-          <button type="submit" class="btn btn-primary">Save Profile</button>
-        </div>
-      </fieldset>
+
+
+      <md-card>
+
+             <md-card-content>
+               <md-input-container class="md-icon-float md-icon-right md-block">
+             <label>First Name</label>
+             <input type="text" name="firstName"  ng-model="vm.user.firstName" placeholder="First Name" required autofocus>
+             <div ng-messages="vm.userForm.firstName.$error" role="alert">
+               <p class="my-message" ng-message="required">First name is required.</p>
+             </div>
+             </md-input-container>
+             <md-input-container class="md-icon-float md-icon-right md-block">
+             <label>Last Name</label>
+             <input type="text" id="lastName" name="lastName"  ng-model="vm.user.lastName" placeholder="Last Name" required>
+             <div ng-messages="vm.userForm.lastName.$error" role="alert">
+             <p class="my-message" ng-message="required">Last name is required.</p>
+             </div>
+             </md-input-container>  <md-input-container class="md-icon-float md-icon-right md-block">
+             <label>Email</label>
+             <input type="email" id="email" name="email"  ng-model="vm.user.email" placeholder="Email" lowercase required disabled>
+             <div ng-messages="vm.userForm.email.$error" role="alert">
+             <p class="my-message" ng-message="required">Email address is required.</p>
+             <p class="my-message" ng-message="email">Email address is invalid.</p>
+             </div>
+             </md-input-container>
+
+             <md-input-container class="md-icon-float md-icon-right md-block">
+             <label>Username</label>
+             <input type="text" id="username" name="username"  ng-model="vm.user.username" placeholder="Username" lowercase required disabled>
+             <div ng-messages="vm.userForm.username.$error" role="alert">
+             <p class="my-message" ng-message="required">Username is required.</p>
+             </div>    
+             </md-input-container>
+
+
+
+               <div class="text-center form-group">
+                 <md-button type="submit" class="md-raised md-primary">Save Profile</md-button>
+
+               </div>
+             </md-card-content>
+
+           </md-card>
+
+
+
+
     </form>
   </div>
 </section>
