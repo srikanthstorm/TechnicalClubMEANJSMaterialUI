@@ -1,10 +1,7 @@
 
 <section><br><br>
   <div class="container bootstrap snippet">
-      <div class="row">
-        <div class="col-sm-10" ><h3 ng-bind="vm.user.displayName"></h3></div>
 
-      </div>
       <div class="row">
         <div class="col-sm-3"><!--left col-->
 
@@ -13,8 +10,13 @@
           <img   ng-src="{{vm.user.profileImageURL}}"  class="avatar" alt="avatar">
 
 
-        </div><hr><br>
-        
+        </div>
+        <div class="text-center">
+        <h3 ng-bind="vm.user.displayName"></h3>
+
+        </div>
+        <hr><br>
+
 
 
 

@@ -61,6 +61,7 @@ myservice.getOnlyUsers().then(function (userresponse) {
       var begin = (($scope.currentPage - 1) * $scope.itemsPerPage);
       var end = begin + $scope.itemsPerPage;
       $scope.pagedItems = $scope.filteredItems.slice(begin, end);
+      console.log($scope.pagedItems)
     }
 
     $scope.filterByRole=function() {
@@ -77,7 +78,7 @@ myservice.getOnlyUsers().then(function (userresponse) {
     }
 
     function pageChanged() {
-      vm.figureOutItemsToDisplay();
+      figureOutItemsToDisplay();
     }
   }
 }());

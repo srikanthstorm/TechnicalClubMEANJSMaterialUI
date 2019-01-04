@@ -115,7 +115,7 @@ var UserSchema = new Schema({
   branch: {
     type: String
   },
-  
+
   contact: {
     type: Number
   },
@@ -145,7 +145,7 @@ var UserSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  
+
   /* For reset password */
   resetPasswordToken: {
     type: String
@@ -170,17 +170,17 @@ UserSchema.pre('save', function (next) {
 /**
  * Hook a pre validate method to test the local password
  */
-UserSchema.pre('validate', function (next) {
-  if (this.provider === 'local' && this.password && this.isModified('password')) {
-    var result = owasp.test(this.password);
-    if (result.errors.length) {
-      var error = result.errors.join(' ');
-      this.invalidate('password', error);
-    }
-  }
-
-  next();
-});
+// UserSchema.pre('validate', function (next) {
+//   if (this.provider === 'local' && this.password && this.isModified('password')) {
+//     var result = owasp.test(this.password);
+//     if (result.errors.length) {
+//       var error = result.errors.join(' ');
+//       this.invalidate('password', error);
+//     }
+//   }
+//
+//   next();
+// });
 
 /**
  * Create instance method for hashing a password
@@ -361,7 +361,7 @@ var DailySchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  
+
 
 });
 

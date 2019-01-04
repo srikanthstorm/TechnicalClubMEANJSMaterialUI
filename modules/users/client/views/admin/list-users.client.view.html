@@ -42,9 +42,9 @@
 
     <a ng-repeat="user in pagedItems" class="myanchor" ui-sref="admin.user({userId: user._id})" >
       <md-card class="cardhover" style="height:60px">
-              <md-card-content>
-                <h4 class="list-group-item-heading" >{{user.firstName}} {{user.LastName}}</h4>
-                <p class="list-group-item-text pull-right small" ng-bind="user.roles"></p>
+              <md-card-content ng-class="{'admincolor': user.roles == 'admin'}">
+                <h4 class="list-group-item-heading"  ng-class="{'orange': user.roles == 'clubadmin'}">{{user.firstName}} {{user.LastName}}</h4>
+                <p class="list-group-item-text pull-right small" ng-class="{'green': user.roles == 'coordinator'}" ng-bind="user.roles"></p>
                 <p class="list-group-item-text" ng-bind="user.email"></p>
               </md-card-content>
 
@@ -62,5 +62,14 @@
 }
 .cardhover:hover{
   background-color:aliceblue;
+}
+.green{
+  color:green;
+}
+.orange{
+  color:#ff9900;
+}
+.admincolor{
+  color:#00b3b3;
 }
 </style>

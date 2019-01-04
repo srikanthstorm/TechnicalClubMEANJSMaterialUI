@@ -12,6 +12,18 @@ var path = require('path'),
 /**
  * Show the current user
  */
+ var nodemailer = require('nodemailer');
+ var randomstring = require("randomstring");
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'developers.svec@gmail.com',
+    pass: 'infinity@svec'
+  }
+});
+
+
 exports.read = function (req, res) {
   res.json(req.model);
 };
@@ -25,6 +37,13 @@ exports.createuser = function (req, res) {
   user.provider = 'local';
   user.displayName = user.firstName + ' ' + user.lastName;
 
+var genPass = randomstring.generate({
+  length: 10,
+  charset: 'alphanumeric'
+});
+user.password = genPass;
+console.log(user.password);
+
   // Then save the user
   user.save(function (err) {
     if (err) {
@@ -34,10 +53,25 @@ exports.createuser = function (req, res) {
       });
     } else {
       // Remove sensitive data before login
+      var mailOptions = {
+        from: 'TechnicalClub@gmail.com',
+        to: 'srikanthnaidu512@gmail.com',
+        subject: 'REGISTRATION SUCESSFULL',
+        // text: 'Welcome '+user.firstName+'. Your Registration has been completed Successfully 'genPass
+         html: '<html><body> <p style="font-family:comic san ms;color:#009999"> <b> Hello '+user.firstName+',</b></p> Your Registration for '+user.clubs+' has been Successfully completed <br> Username:  '+user.email+'<br>Password: '+genPass+'<br> Please <a href="https://my-apwep.mybluemix.net/authentication/signin">Click Here</a> to Login. </body></html>'
+      };
+
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
       user.password = undefined;
       user.salt = undefined;
       res.json(user);
-     
+
     }
   });
 };
@@ -48,7 +82,7 @@ exports.postdailystatus = function (req, res) {
 
   // Init user and add missing fields
   var status = new Status(req.body.status);
- 
+
   // Then save the user
   status.save(function (err) {
     if (err) {
@@ -58,9 +92,9 @@ exports.postdailystatus = function (req, res) {
       });
     } else {
       // Remove sensitive data before login
-     
+
       res.json(status);
-     
+
     }
   });
 };
@@ -89,11 +123,11 @@ exports.update = function (req, res) {
   });
 };
 exports.updateUser = function (req, res) {
-  
+
   var user = new User(req.body.user);
   console.log("You reached here")
   User.findOneAndUpdate({email:req.body.user.email}, req.body.user, function (err, user) {
-    
+
     if (err) {
       console.log("Update Failed",err)
       return res.status(422).send({
@@ -104,7 +138,7 @@ exports.updateUser = function (req, res) {
 
     res.json(user);
   });
- 
+
 };
 /**
  * Delete a user
