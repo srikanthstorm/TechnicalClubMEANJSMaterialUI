@@ -15,7 +15,7 @@
         <li ui-sref-active="active">
           <a ui-sref="settings.profile">Edit Profile</a>
         </li>
-        <li ui-sref-active="active" >
+        <li ui-sref-active="active red" >
           <a ui-sref="settings.picture" >Change Profile Picture</a>
         </li>
         <li ui-sref-active="active" ng-show="vm.user.provider === 'local'">
@@ -31,3 +31,9 @@
     </div>
   </div>
 </section>
+<style >
+  red .active a,
+.red .active a:hover {
+    background-color: red;
+}
+</style>

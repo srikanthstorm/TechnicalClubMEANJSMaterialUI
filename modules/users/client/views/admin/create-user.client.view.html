@@ -114,7 +114,7 @@
 
             <md-input-container class="md-block" flex-gt-sm>
               <label>Contact No</label>
-              <input type="contact" id="Contact" name="conatct" class="form-control" ng-model="credentials.contact" placeholder="Contact No" required>
+              <input type="contact" id="Contact" name="conatct"  ng-model="credentials.contact"  required>
               <div ng-messages=" userForm.contact.$error" role="alert">
                 <p class="help-block error-text" ng-message="required">Last name is required.</p>
               </div>
@@ -142,7 +142,7 @@
 
 
 
-      
+
           <div class="text-center form-group">
             <md-button ng-click="register()" class="md-raised md-primary">Register</md-button>
 
